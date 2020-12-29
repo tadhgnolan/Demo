@@ -77,28 +77,6 @@ a {
   padding-top: 100px;
 }
 
-.dropdown-menu {
-  background-color: #6aaed9;
-}
-
-.dropdown-menu {
-  font-size: 1.25rem !important;
-}
-
-.blockquote {
-  font-size: 1.25rem;
-}
-
-/*For improved alignement with neighbouring text*/
-.rounded-circle {
-  margin-top: 20px;
-}
-
-/*For improved alignment when accessed via links*/
-.story {
-  margin-top: 40px !important;
-}
-
 /*To increase the size of the first letter of each story for visibility*/
 .capital {
   font-size: 150% !important;
@@ -158,14 +136,14 @@ a {
 
 #landing-text {
   text-align: center;
-  text-shadow: 2px 2px grey;
+  text-shadow: 2px 2px blue;
   color: white !important;
 }
 
 #landing-subtext {
   font-size: 1.25rem;
   text-align: center;
-  text-shadow: 2px 2px grey;
+  text-shadow: 2px 2px blue;
   color: whtie !important;
 }
 
