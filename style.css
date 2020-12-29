@@ -1,46 +1,237 @@
-body,
-html {
-  padding: 0px;
-  margin: 0;
-  background-color: #e2f6d5;
-  font-family: 'Poppins', sans-serif;
-}
+/* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
 
-.wrapper {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto:,300,400,500,');
 
-.center {
-  width: 40%;
-  background-color: white;
+h1 {
   text-align: center;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  background-color: grey;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* TODO: Step 4A1: Make a generic sidebar */
+/* Styling for an info pane that slides out from the left. 
+     * Hidden by default. */
+#panel {
+  height: 100%;
+  width: null;
+  background-color: white;
+  position: fixed;
+  z-index: 1;
+  overflow-x: hidden;
+  transition: all 0.2s ease-out;
+}
+
+.open {
+  width: 250px;
+}
+
+/* Styling for place details */
+.hero {
+  width: 100%;
+  height: auto;
+  max-height: 166px;
+  display: block;
+}
+
+.place,
+p {
+  font-family: 'open sans', arial, sans-serif;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.details {
+  color: darkslategrey;
+}
+
+a {
+  text-decoration: none;
+  color: cadetblue;
+}
+
+/* Repeated use of !important property to overide Bootstrap styling */
+
+/* Used https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+
+/*Replacement styling for Navbar*/
+.navbar {
+  color: #232c34;
+  background-color: #fe0000;
+}
+
+.intro-2 {
+  background: url(../images/heroimage.jpg) no-repeat center center;
+  background-size: cover;
+  padding-top: 100px;
+}
+
+.dropdown-menu {
+  background-color: #6aaed9;
+}
+
+.dropdown-menu {
+  font-size: 1.25rem !important;
+}
+
+.blockquote {
+  font-size: 1.25rem;
+}
+
+/*For improved alignement with neighbouring text*/
+.rounded-circle {
+  margin-top: 20px;
+}
+
+/*For improved alignment when accessed via links*/
+.story {
+  margin-top: 40px !important;
+}
+
+/*To increase the size of the first letter of each story for visibility*/
+.capital {
+  font-size: 150% !important;
+  padding-right: 1px;
+}
+
+/*to over-ride linked styling*/
+.page-footer {
+  background-color: black !important;
+  color: white !important;
+  text-align: center !important ;
+}
+
+.fa {
+  background-color: #0c88ef;
   margin: auto;
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
 }
 
-#map-canvas {
-  width: auto;
-  height: 400px;
+/*Headings for screenreader users*/
+.hidden-title {
+  display: none;
 }
 
-#btn {
-  cursor: pointer;
+/*Hover to highlight icons and prevent accidental click*/
+.fa:hover {
+  opacity: 0.7;
+  color: #232c34;
 }
 
-input {
-  width: 90%;
+.whiteline {
+  max-width: 11rem;
+  border-width: 0.2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   border: none;
-  border-bottom: 1px solid black;
-  margin-right: 10px;
-  font-size: 18px;
+  border-top: 1px solid #fafafa;
 }
 
-input:focus {
-  outline: none;
-  border-bottom: 2px solid greenyellow;
+.greyline {
+  max-width: 11rem;
+  border-width: 0.2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-top: 1px solid #232c34;
 }
 
-.fas-search {
-  margin-top: 3px;
+#intro {
+  height: 100%;
+}
+
+#landing-text {
+  text-align: center;
+  text-shadow: 2px 2px grey;
+  color: white !important;
+}
+
+#landing-subtext {
+  font-size: 1.25rem;
+  text-align: center;
+  text-shadow: 2px 2px grey;
+  color: whtie !important;
+}
+
+/* Added custom alignment to overide Bootstrap */
+#map {
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+}
+
+#WhatIsBujinkan {
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+  color: white !important;
+}
+
+/*Used https://cssmatic.com/box-shadow to generate box shadow*/
+#submit {
+  padding: 20px;
+  background-color: #4480a6;
+  color: #d0e2f2;
+  width: 30%;
+  border-radius: 12px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+/*Hover to highlight button & avoid accidental press*/
+#submit:hover {
+  opacity: 0.7;
+  color: #f2e0bd;
+}
+
+li {
+  font-size: 1.25rem !important;
+}
+
+html,
+body,
+header,
+.view {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  background-color: black;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/*for tablets ranging in size between iPad & iPad Pro*/
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  body {
+    font-size: 2rem !important;
+  }
+  .navbar-brand,
+  .nav-link,
+  .dropdown-item {
+    font-size: 1.25rem !important;
+  }
+  .blockquote {
+    font-size: 2.5rem !important;
+  }
+  p {
+    font-size: 1.25rem !important;
+  }
 }

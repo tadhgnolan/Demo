@@ -1,29 +1,267 @@
+ <!--
+  Copyright 2019 Google LLC
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+       http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Club Finder</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+  <title>Bujinkan Club Finder</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="wrapper">
-      <div class="center">
-          <div class="card">
-            <div class="card-header bg-white">
-              <input type="text" id="mapsearch"><i class="fas fa-search m-2" id="btn"></i>
-            </div>
-            <div class="card-body m-n3">
-                <div id="map-canvas"></div>
+  <script type="text/javascript" src="map.js" ></script>
+
+<link
+      href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/css/mdb.min.css"
+      rel="stylesheet"
+    />
+    
+    <link rel="shortcut-icon" type="image/png" href="favicon.ico" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <!-- Code used from https://mdbootstrap.com/snippets/jquery/mdbootstrap/102551 -->
+    <!-- Code used from https://www.udemy.com/course/bootstrap-4-from-scratch-with-5-projects (Course Resources Section 3: CSS Components - Navbar & Navs. Brad Traversy) -->
+    <!-- Used basic Navbar layout from MDBootsrap (similar to those at https://www.w3schools.com/, but with extra js styling). Removed unenecessary styling and added my own in css -->
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark Denim">
+      <a class="navbar-brand ml-0" href="#intro"
+        ><strong
+          >Bujinkan Club Finder</strong
+      ></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto ml-auto">
+          <li
+            class="nav-item active"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >
+            <a class="nav-link" href="#intro"
+              >Home<span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li
+            class="nav-item"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >
+            <a class="nav-link" href="#map">Go to map</a>
+          </li>
+          <li
+            class="nav-item"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >
+            <a class="nav-link" href="#WhatIsBujinkan">What is Bujinkan?</a>
+          </li>          
+          
+          </li>
+          <li
+            class="nav-item"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >
+            <a class="nav-link" href="#contact-form">Any questions?</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Intro/About/Hero Image/landing -->
+    <header>
+      <section id="intro">
+        <div class="view intro-2">
+          <div class="full-bg-img img-fluid">
+            <div class="mask rgba-black-light flex-center">
+              <div class="container text-center white-text">
+                <div class="white-text text-center wow fadeInUp">
+                  <h1 id="landing-text">Find Your Nearest Club</h1>
+                  <h2 id="landing-subtext">
+                    A simple tool to find your nearest Bujinkan club                              
+                  </h2>                  
+                  <h2 id="landing-subtext">
+                    ↓ Scroll down to view map ↓                              
+                  </h2>                             
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+    </header>
+
+    <!-- Main -->
+    
+      
+  <!-- The slide-out panel for showing place details -->
+    <div id="panel"></div>
+
+    <!-- Map appears here -->
+    
+    <div id="map"></div>
+   
+
+    <!--Stories organised by month -->
+    <section id="WhatIsBujinkan">
+      <div class="container">
+        <div class="row">
+          <div class="story col-8 ml-auto mr-auto my-2 pt-5 pb-5 px-1">
+            <h2>
+              What is Bujinkan?
+            </h2>
+            <br />
+            <p>
+              <span class="capital">T</span>he Bujinkan (Japanese: 武神館) is an international martial arts organization based in Japan and headed by Masaaki Hatsumi. The combat system taught by this organization comprises nine separate ryūha, or schools, which are collectively referred to as Bujinkan Budō Taijutsu. The Bujinkan is most commonly associated with ninjutsu. However, Masaaki Hatsumi uses the term Budo (meaning martial way) as he says the ryūha are descended from historical samurai schools that teach samurai martial tactics and ninjutsu schools that teach ninja tactics..
+            </p>
+            
+            <br />
+            <hr class="whiteline" />
+          </div>
+        </div>
       </div>
-  </div>
-  <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDo_1WzW26ZNB4CcwkTD37678uh8Vg1xvo&callback=initMap&libraries=places">
+    </section>
+
+    
+    <!-- Form made with tutorials from https://www.w3schools.com/bootstrap4/bootstrap_forms.asp and https://azmind.com/bootstrap-align-center/ -->
+    <section id="contact-form">
+      <!-- Added h3 with display set to none for screenreader users -->
+      <h3 class="hidden-title">Contact form</h3>
+      <br />
+      <div class="container">
+        <div class="row h-30">
+          <div
+            class="col-12 my-3 py-4 justify-content-center align-items-center"
+          >
+            <form>
+              <div class="form-group">
+                <label for="email">Email address:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Please enter a valid email address"
+                  id="email"
+                  required
+                />
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">Please fill out this field</div>
+              </div>
+              <div class="form-group">
+                <label for="comment">Send us your question</label>
+                <textarea
+                  class="form-control"
+                  rows="6"
+                  id="comment"
+                  placeholder="Send us your query"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" id="submit">
+                Send it
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer code used as template & modified from https://mdbootstrap.com/docs/jquery/navigation/footer/ -->
+    <section id="footer">
+      <!-- Added h3 with display set to none for screenreader users -->
+      <h3 class="hidden-title">Footer</h3>
+      <!-- Footer -->
+      <footer class="page-footer font-small gray darken-3">
+        <!-- Footer Elements -->
+        <div class="container">
+          <!-- Grid row-->
+          <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-12 py-5">
+              <div id="social" class="mb-5 flex-center">
+                <a
+                  class="fa"
+                  href="#"
+                  target="_blank"
+                  rel="noreferrer"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  class="fa"
+                  href="#
+                "
+                  target="_blank"
+                  rel="noreferrer"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a
+                  class="fa"
+                  href="#"
+                  target="_blank"
+                  rel="noreferrer"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copyright light text-center py-3">
+          © 2020 Copyright: Bujinkan Club Finder
+        </div>
+      </footer>
+    </section>
+
+    <!-- Jquery, Popper & Bootstrap scripts added for improved functionality -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://kit.fontawesome.com/668eef35c0.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/js/mdb.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+ 
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDo_1WzW26ZNB4CcwkTD37678uh8Vg1xvo&libraries=places&callback=initMap">
   </script>
 </body>
+
 </html>
