@@ -9,7 +9,7 @@ h1 {
 
 #map {
   height: 100%;
-  width: 100%;
+
   background-color: grey;
 }
 
@@ -21,7 +21,6 @@ body {
   padding: 0;
 }
 
-/* TODO: Step 4A1: Make a generic sidebar */
 /* Styling for an info pane that slides out from the left. 
      * Hidden by default. */
 #panel {
@@ -73,7 +72,7 @@ a {
 }
 
 .intro-2 {
-  background: url(../images/heroimage.jpg) no-repeat center center;
+  background: url(./images/heroimage.jpg) no-repeat center center;
   background-size: cover;
   padding-top: 100px;
 }
