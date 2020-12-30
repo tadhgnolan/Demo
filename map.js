@@ -1,6 +1,3 @@
-/* Note: This example requires that you consent to location sharing when
- * prompted by your browser. If you see the error "Geolocation permission
- * denied.", it means you probably did not give permission for the browser * to locate you. */
 let pos;
 let map;
 let bounds;
@@ -13,7 +10,7 @@ function initMap() {
   bounds = new google.maps.LatLngBounds();
   infoWindow = new google.maps.InfoWindow();
   currentInfoWindow = infoWindow;
-  /* TODO: Step 4A3: Add a generic sidebar */
+  /* Generic sidebar */
   infoPane = document.getElementById('panel');
 
   // Try HTML5 geolocation
@@ -51,8 +48,8 @@ function initMap() {
 
 // Handle a geolocation error
 function handleLocationError(browserHasGeolocation, infoWindow) {
-  // Set default location to Sydney, Australia
-  pos = { lat: -33.856, lng: 151.215 };
+  // Set default location to Dublin, Ireland
+  pos = { lat: 55.37967, lng: -6.19644 };
   map = new google.maps.Map(document.getElementById('map'), {
     center: pos,
     zoom: 15,
@@ -84,7 +81,7 @@ function getNearbyPlaces(position) {
   service.nearbySearch(request, nearbyCallback);
 }
 
-// Handle the results (up to 20) of the Nearby Search
+// Handle the results of the Nearby Search
 function nearbyCallback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     createMarkers(results);
@@ -100,7 +97,6 @@ function createMarkers(places) {
       title: place.name,
     });
 
-    /* TODO: Step 4B: Add click listeners to the markers */
     // Add click listener to each marker
     google.maps.event.addListener(marker, 'click', () => {
       let request = {
@@ -116,8 +112,7 @@ function createMarkers(places) {
       };
 
       /* Only fetch the details of a place when the user clicks on a marker.
-       * If we fetch the details for all place results as soon as we get
-       * the search response, we will hit API rate limits. */
+         to avoid API rate limits. */
       service.getDetails(request, (placeResult, status) => {
         showDetails(placeResult, marker, status);
       });
@@ -131,7 +126,7 @@ function createMarkers(places) {
   map.fitBounds(bounds);
 }
 
-/* TODO: Step 4C: Show place details in an info window */
+/* Show place details in an info window */
 // Builds an InfoWindow to display details above the marker
 function showDetails(placeResult, marker, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -155,7 +150,6 @@ function showDetails(placeResult, marker, status) {
   }
 }
 
-/* TODO: Step 4D: Load place details in a sidebar */
 // Displays place details in a sidebar
 function showPanel(placeResult) {
   // If infoPane is already open, close it
@@ -168,7 +162,6 @@ function showPanel(placeResult) {
     infoPane.removeChild(infoPane.lastChild);
   }
 
-  /* TODO: Step 4E: Display a Place Photo with the Place Details */
   // Add the primary photo, if there is one
   if (placeResult.photos) {
     let firstPhoto = placeResult.photos[0];
